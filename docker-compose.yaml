@@ -1,0 +1,14 @@
+version: '3.3'
+
+services:
+  python-dogstatsd-demo:
+    image: python-dogstatsd-demo
+    container_name: python-dogstatsd-demo
+    build: .
+    ports:
+    - 8080:8080
+    expose:
+    - 8080
+    environment:
+    - DD_DOGSTATSD_TAGS="environment:dev app:python-dogstatsd-demo"
+    - DD_AGENT_HOST="10.96.32.22"
